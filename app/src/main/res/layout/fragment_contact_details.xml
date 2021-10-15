@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".ContactDetailsFragment">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@color/gray_background"
+        android:src="@drawable/ic_android_black_96dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_text_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="textPersonName"
+        android:text="@string/contact_name1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_text_number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:inputType="number"
+        android:text="@string/contact_number1"
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_name"
+        app:layout_constraintStart_toStartOf="@+id/iv_icon"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_name" />
+
+    <EditText
+        android:id="@+id/edit_text_number2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/contact_number2"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_number"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_number"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_number" />
+
+    <Button
+        android:id="@+id/btn_more_numbers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="..."
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_number2"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_number2"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_number2" />
+
+    <EditText
+        android:id="@+id/edit_text_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:inputType="textEmailAddress"
+        android:text="@string/contact_email1"
+        app:layout_constraintEnd_toEndOf="@+id/btn_more_numbers"
+        app:layout_constraintStart_toStartOf="@+id/btn_more_numbers"
+        app:layout_constraintTop_toBottomOf="@+id/btn_more_numbers" />
+
+    <EditText
+        android:id="@+id/edit_text_email2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/contact_email2"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_email"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_email"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_email" />
+
+    <Button
+        android:id="@+id/btn_more_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="..."
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_email2"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_email2"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_email2" />
+
+    <EditText
+        android:id="@+id/edit_text_description"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:gravity="start"
+        android:hint="@string/contact_description"
+        android:inputType="textMultiLine|textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_more_email"
+        app:layout_constraintStart_toStartOf="@+id/btn_more_email"
+        app:layout_constraintTop_toBottomOf="@+id/btn_more_email" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

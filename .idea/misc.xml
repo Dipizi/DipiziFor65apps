@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/Desktop/65-apps/app/src/main/res/drawable/ic_android_black_96dp.xml" value="0.3828125" />
         <entry key="..\:/Users/Admin/Desktop/65-apps/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/Admin/Desktop/65-apps/app/src/main/res/layout/fragment_contact_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Admin/Desktop/65-apps/app/src/main/res/layout/fragment_contacts.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
