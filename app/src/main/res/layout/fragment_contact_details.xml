@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ContactDetailsFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivIconDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@color/gray_background"
+        android:src="@drawable/ic_android_black_96dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etNameDetails"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="textPersonName"
+        android:text="@string/contact_name1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivIconDetails"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etNumberDetails"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:inputType="number"
+        android:text="@string/contact_number1"
+        app:layout_constraintEnd_toEndOf="@+id/etNameDetails"
+        app:layout_constraintStart_toStartOf="@+id/ivIconDetails"
+        app:layout_constraintTop_toBottomOf="@+id/etNameDetails" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etNumber2Details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/contact_number2"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/etNumberDetails"
+        app:layout_constraintStart_toStartOf="@+id/etNumberDetails"
+        app:layout_constraintTop_toBottomOf="@+id/etNumberDetails" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMoreNumbers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btm_..."
+        app:layout_constraintEnd_toEndOf="@+id/etNumber2Details"
+        app:layout_constraintStart_toStartOf="@+id/etNumber2Details"
+        app:layout_constraintTop_toBottomOf="@+id/etNumber2Details" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etEmailDetails"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:inputType="textEmailAddress"
+        android:text="@string/contact_email1"
+        app:layout_constraintEnd_toEndOf="@+id/btnMoreNumbers"
+        app:layout_constraintStart_toStartOf="@+id/btnMoreNumbers"
+        app:layout_constraintTop_toBottomOf="@+id/btnMoreNumbers" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etEmail2Details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/contact_email2"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/etEmailDetails"
+        app:layout_constraintStart_toStartOf="@+id/etEmailDetails"
+        app:layout_constraintTop_toBottomOf="@+id/etEmailDetails" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMoreEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btm_..."
+        app:layout_constraintEnd_toEndOf="@+id/etEmail2Details"
+        app:layout_constraintStart_toStartOf="@+id/etEmail2Details"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail2Details" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etDescriptionDetails"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:gravity="start"
+        android:hint="@string/contact_description"
+        android:inputType="textMultiLine|textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnMoreEmail"
+        app:layout_constraintStart_toStartOf="@+id/btnMoreEmail"
+        app:layout_constraintTop_toBottomOf="@+id/btnMoreEmail" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
