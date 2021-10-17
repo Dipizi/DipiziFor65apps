@@ -34,6 +34,4 @@ class MainActivity : AppCompatActivity(), Connection {
     companion object{
         const val keyForId = "idKeY"
     }
-
-
 }
