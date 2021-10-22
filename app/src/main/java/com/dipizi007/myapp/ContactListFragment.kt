@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import coil.load
 import com.dipizi007.myapp.databinding.FragmentContactsBinding
 
 class ContactListFragment : Fragment() {
@@ -13,11 +14,26 @@ class ContactListFragment : Fragment() {
     private var connector: Connection? = null
     private var _binding: FragmentContactsBinding? = null
     private val binding get() = _binding!!
+    private var iService: BindContactService.IService? = null
+    private val callback = object : IGetListCallback {
+        override fun getListContact(list: List<Person>) {
+            _binding?.run {
+                requireActivity().runOnUiThread {
+                    ivIconList.load(list[0].icon)
+                    tvNameList.text = list[0].name
+                    tvNumberList.text = list[0].phone1
+                }
+            }
+        }
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is Connection)
             connector = context
+
+        if (context is BindContactService.IService)
+            iService = context
     }
 
     override fun onCreateView(
@@ -32,8 +48,9 @@ class ContactListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().title = getString(R.string.app_name)
         binding.cvContact.setOnClickListener {
-            connector?.transition("1") //TODO: Убрать хардкод в будущем
+            connector?.onClickPerson(0) //TODO: Убрать хардкод в будущем
         }
+        iService?.getService()?.fetchContactList(callback)
     }
 
     override fun onDestroyView() {
@@ -43,6 +60,7 @@ class ContactListFragment : Fragment() {
 
     override fun onDetach() {
         connector = null
+        iService = null
         super.onDetach()
     }
 

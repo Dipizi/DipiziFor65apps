@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Контакты</string>
     <string name="contact_details_tool_bar_name">Детали контакта</string>
-    <string name="contact_name1">Чернышев Александр</string>
-    <string name="contact_number1">8-904-835-09-28</string>
-    <string name="contact_number2">2-ой номер</string>
-    <string name="contact_email1">dipizi007@gmail.com</string>
-    <string name="contact_email2">2-ой email</string>
-    <string name="contact_description">Описание</string>
-    <string name="btm_...">...</string>
+    <string name="contact_name1_text">Чернышев Александр</string>
+    <string name="contact_number_text">8-904-835-09-28</string>
+    <string name="contact_number_second_text">2-ой номер</string>
+    <string name="contact_email_text">dipizi007@gmail.com</string>
+    <string name="contact_email_second_text">2-ой email</string>
+    <string name="contact_description_text">Описание</string>
+    <string name="button_more_text">...</string>
 </resources>
