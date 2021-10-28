@@ -1,29 +1,49 @@
 package com.dipizi007.myapp
 
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.content.ServiceConnection
 import android.os.Bundle
+import android.os.IBinder
 import androidx.appcompat.app.AppCompatActivity
-import com.dipizi007.myapp.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), Connection {
+class MainActivity : AppCompatActivity(), Connection, BindContactService.IService {
 
-    private var _binding: ActivityMainBinding? = null
-    private val binding get() = _binding!!
+    private var bindContactService: BindContactService? = null
+    private var bound = false
+    private val connection = object : ServiceConnection {
+
+        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+            val binder = service as BindContactService.ContactBinder
+            bindContactService = binder.getService()
+            bound = true
+        }
+
+        override fun onServiceDisconnected(name: ComponentName?) {
+            bindContactService = null
+            bound = false
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        if (savedInstanceState == null)
+        setContentView(R.layout.activity_main)
+        bindingService()
+        if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(
+                .replace(
                     R.id.flContainer,
                     ContactListFragment(),
                     ContactListFragment.TAG_FOR_CONTACT_LIST
                 )
                 .commit()
+        }
     }
 
-    override fun transition(contactId: String) {
+    override fun getService() = bindContactService
+
+    override fun onClickPerson(contactId: Int) {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.flContainer,
@@ -35,7 +55,15 @@ class MainActivity : AppCompatActivity(), Connection {
     }
 
     override fun onDestroy() {
-        _binding = null
+        if (bound) {
+            unbindService(connection)
+            bound = false
+        }
         super.onDestroy()
+    }
+
+    private fun bindingService() {
+        val i = Intent(this, BindContactService::class.java)
+        bindService(i, connection, Context.BIND_AUTO_CREATE)
     }
 }
