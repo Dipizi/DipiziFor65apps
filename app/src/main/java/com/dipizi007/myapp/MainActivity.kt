@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity(), Connection, BindContactService.IServic
 
     private var bindContactService: BindContactService? = null
     private var bound = false
+    private var isNotify = false
     private val connection = object : ServiceConnection {
 
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
@@ -30,14 +31,14 @@ class MainActivity : AppCompatActivity(), Connection, BindContactService.IServic
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         bindingService()
+        openAfterNotify()
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(
-                    R.id.flContainer,
-                    ContactListFragment(),
-                    ContactListFragment.TAG_FOR_CONTACT_LIST
-                )
-                .commit()
+            if (isNotify) {
+                openFrag()
+                onClickPerson(openAfterNotify())
+            } else {
+                openFrag()
+            }
         }
     }
 
@@ -65,5 +66,23 @@ class MainActivity : AppCompatActivity(), Connection, BindContactService.IServic
     private fun bindingService() {
         val i = Intent(this, BindContactService::class.java)
         bindService(i, connection, Context.BIND_AUTO_CREATE)
+    }
+
+    private fun openAfterNotify(): Int {
+        val contactId = intent.getIntExtra(Const.CONTACT_ID, -1)
+        if (contactId != -1) {
+            isNotify = true
+        }
+        return contactId
+    }
+
+    private fun openFrag() {
+        supportFragmentManager.beginTransaction()
+            .replace(
+                R.id.flContainer,
+                ContactListFragment(),
+                ContactListFragment.TAG_FOR_CONTACT_LIST
+            )
+            .commit()
     }
 }
