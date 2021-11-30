@@ -91,11 +91,31 @@
         android:id="@+id/tvDescriptionDetails"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/contact_description_text"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnBirthDay"
         app:layout_constraintEnd_toEndOf="@+id/btnMoreEmail"
         app:layout_constraintStart_toStartOf="@+id/btnMoreEmail"
         app:layout_constraintTop_toBottomOf="@+id/btnMoreEmail" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBirthDay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/button_enable_birthday_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvDescriptionDetails" />
+
+    <TextView
+        android:id="@+id/tvBirthDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnBirthDay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionDetails" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

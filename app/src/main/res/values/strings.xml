@@ -8,4 +8,8 @@
     <string name="contact_email_second_text">2-ой email</string>
     <string name="contact_description_text">Описание</string>
     <string name="button_more_text">...</string>
+    <string name="button_enable_birthday_text">Включить напоминание</string>
+    <string name="button_unable_birthday_text">Выключить напоминание</string>
+    <string name="notification_title">Уведомление</string>
+    <string name="notification_text">День рождение у</string>
 </resources>

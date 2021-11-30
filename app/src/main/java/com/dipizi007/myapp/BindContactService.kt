@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
 import java.lang.ref.WeakReference
+import java.util.*
 import kotlin.concurrent.thread
 
 class BindContactService : Service() {
@@ -16,7 +17,8 @@ class BindContactService : Service() {
             "8-999-851-97-22",
             "Kapibara@yandex.ru",
             "Капибара",
-            0 //TODO: Убрать весь хардкод в будущем
+            0, //TODO: Убрать весь хардкод в будущем
+            "27-02-2000"
         )
     )
 

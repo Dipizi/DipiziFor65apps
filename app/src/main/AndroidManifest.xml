@@ -10,6 +10,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.Dipizi007">
 
+        <receiver
+            android:name=".NotifyReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.dipizi007.myapp" />
+            </intent-filter>
+        </receiver>
+
         <service
             android:name=".BindContactService"
             android:enabled="true" />
